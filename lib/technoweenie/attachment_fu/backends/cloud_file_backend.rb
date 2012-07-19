@@ -13,11 +13,11 @@ module Technoweenie # :nodoc:
       #
       # == Configuration
       #
-      # Configuration is done via <tt>RAILS_ROOT/config/rackspace_cloudfiles.yml</tt> and is loaded according to the <tt>RAILS_ENV</tt>.
+      # Configuration is done via <tt>Rails.root/config/rackspace_cloudfiles.yml</tt> and is loaded according to the <tt>Rails.env</tt>.
       # The minimum connection options that you must specify are a container name, your Mosso login name and your Mosso API key.
       # You can sign up for Cloud Files and get access keys by visiting https://www.mosso.com/buy.htm
       #
-      # Example configuration (RAILS_ROOT/config/rackspace_cloudfiles.yml)
+      # Example configuration (Rails.root/config/rackspace_cloudfiles.yml)
       #
       #   development:
       #     container_name: appname_development
@@ -36,7 +36,7 @@ module Technoweenie # :nodoc:
       #
       # You can change the location of the config path by passing a full path to the :cloudfiles_config_path option.
       #
-      #   has_attachment :storage => :cloud_files, :cloudfiles_config_path => (RAILS_ROOT + '/config/mosso.yml')
+      #   has_attachment :storage => :cloud_files, :cloudfiles_config_path => (Rails.root + '/config/mosso.yml')
       #
       # === Required configuration parameters
       #
@@ -123,8 +123,8 @@ module Technoweenie # :nodoc:
                                    :username => opts[:cloudfiles_username],
                                    :api_key => opts[:cloudfiles_api_key]}
           else
-            @@cloudfiles_config_path = base.attachment_options[:cloudfiles_config_path] || (RAILS_ROOT + '/config/rackspace_cloudfiles.yml')
-            @@cloudfiles_config = @@cloudfiles_config = YAML.load(ERB.new(File.read(@@cloudfiles_config_path)).result)[RAILS_ENV].symbolize_keys
+            @@cloudfiles_config_path = base.attachment_options[:cloudfiles_config_path] || (Rails.root + '/config/rackspace_cloudfiles.yml')
+            @@cloudfiles_config = @@cloudfiles_config = YAML.load(ERB.new(File.read(@@cloudfiles_config_path)).result)[Rails.env].symbolize_keys
             base.attachment_options[:cloudfiles_container_name] = @@cloudfiles_config[:container_name]
           end
         end

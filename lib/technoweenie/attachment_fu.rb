@@ -10,7 +10,7 @@ module Technoweenie # :nodoc:
     if defined?(Rails)
       @@tempfile_path      = File.join(Rails.root.to_s, 'tmp', 'attachment_fu')
     else
-      @@tempfile_path      = File.join(RAILS_ROOT, 'tmp', 'attachment_fu')
+      @@tempfile_path      = File.join(Rails.root, 'tmp', 'attachment_fu')
     end
     @@content_types      = [
       'image/jpeg',
@@ -182,7 +182,7 @@ module Technoweenie # :nodoc:
 
       # helper method for has_attachment, for if you want to set up stuff from a yaml file
       def setup_attachment_fu(extra_opts = {}, config_filename = nil)
-        config_file ||= RAILS_ROOT + "/config/attachments.yml"
+        config_file ||= Rails.root + "/config/attachments.yml"
         raise "No attachment_fu configuration found, tried #{config_file}" unless File.exist?(config_file)
 
         att_opts = YAML.load(ERB.new(File.read(config_file)).result)[Rails.env]

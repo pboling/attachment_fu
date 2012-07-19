@@ -5,7 +5,7 @@ Bundler.setup
 ENV['RAILS_ENV'] = 'test'
 
 # to-do: strip from rails 3 tests
-RAILS_ROOT=File.expand_path("..", File.dirname(__FILE__))
+Rails.root=File.expand_path("..", File.dirname(__FILE__))
 
 require 'test/unit'
 require 'active_support'

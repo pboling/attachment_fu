@@ -26,8 +26,8 @@ module Technoweenie # :nodoc:
               memo
             end
           else
-            mogile_config_path = base.attachment_options[:mogile_config_path] || (RAILS_ROOT + '/config/mogilefs.yml')
-            mogile_config = YAML.load(ERB.new(File.read(mogile_config_path)).result)[RAILS_ENV].symbolize_keys
+            mogile_config_path = base.attachment_options[:mogile_config_path] || (Rails.root + '/config/mogilefs.yml')
+            mogile_config = YAML.load(ERB.new(File.read(mogile_config_path)).result)[Rails.env].symbolize_keys
           end
 
           @@mogile_config = mogile_config
