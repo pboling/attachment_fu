@@ -198,7 +198,7 @@ module Technoweenie # :nodoc:
                            :secret_access_key => base.attachment_options[:s3_secret_key],
                            :distribution_domain => base.attachment_options[:s3_distribution_domain]}
           else
-            @@s3_config_path = base.attachment_options[:s3_config_path] || (Rails.root + '/config/amazon_s3.yml')
+            @@s3_config_path = base.attachment_options[:s3_config_path] || (Technoweenie::AttachmentFu.rails_root.to_s + '/config/amazon_s3.yml')
             @@s3_config = @@s3_config = YAML.load(ERB.new(File.read(@@s3_config_path)).result)[Rails.env].symbolize_keys
           end
 
