@@ -3,7 +3,6 @@ require 'active_support'
 require 'active_support/core_ext'
 require 'active_support/dependencies'
 require 'timeout'
-require 'attachment_fu/railtie' if defined?(Rails)
 
 module Technoweenie # :nodoc:
   module AttachmentFu # :nodoc:
