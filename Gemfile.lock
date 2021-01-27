@@ -43,8 +43,7 @@ GEM
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
     metaclass (0.0.1)
-    mini_magick (3.3)
-      subexec (~> 0.1.0)
+    mini_magick (4.9.4)
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.1.0)
@@ -65,7 +64,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    subexec (0.1.0)
     tilt (1.3.3)
     tzinfo (0.3.32)
 
@@ -75,7 +73,7 @@ PLATFORMS
 DEPENDENCIES
   appraisal
   attachment_fu!
-  mini_magick (~> 3.3)
+  mini_magick (~> 4.9)
   mocha
   mysql
   rake
